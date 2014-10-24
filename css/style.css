@@ -187,6 +187,10 @@ p {
 	text-transform: uppercase;
 	text-align: right;
 	transform-origin: right top;
+    -ms-transform-origin: right top;
+    -webkit-transform-origin: right top;
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
 	transform: rotate(-90deg);
 	width: 250px;
 	margin-left: -180px;
