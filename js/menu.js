@@ -11,13 +11,17 @@ updateCurrentSection();
 $('.menuitem').click(function(e) {
     var index = parseInt($(e.target).data('index'));
     changeSection(index);
-}).hover(function(e) {
-    var index = parseInt($(e.target).data('index'));
-    $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
-}).out(function(e) {
-    var index = parseInt($(e.target).data('index'));
-    $("#menu_selection_hover").hide(0);
 });
+
+if (true) {
+    $('.menuitem')..on('mouseover', function(e) {
+        var index = parseInt($(e.target).data('index'));
+        $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
+    }).on('mouseout', function(e) {
+        var index = parseInt($(e.target).data('index'));
+        $("#menu_selection_hover").hide(0);
+    });
+}
 
 // Functions
 
