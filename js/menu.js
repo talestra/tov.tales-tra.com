@@ -3,28 +3,20 @@ var numberOfSections = 5;
 var windowWidth = $(window).width();
 
 var canChangeSection = false;
+var sectionPositions = [83, 252, 412, 590, 759];
+var totalSections = sectionPositions.length;
 
 updateCurrentSection();
 
-$("#menu-0").click(function()
-{
-	changeSection(0);
-});
-$("#menu-1").click(function()
-{
-	changeSection(1);
-});
-$("#menu-2").click(function()
-{
-	changeSection(2);
-});
-$("#menu-3").click(function()
-{
-	changeSection(3);
-});
-$("#menu-4").click(function()
-{
-	changeSection(4);
+$('.menuitem').click(function(e) {
+    var index = parseInt($(e.target).data('index'));
+    changeSection(index);
+}).hover(function(e) {
+    var index = parseInt($(e.target).data('index'));
+    $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
+}).out(function(e) {
+    var index = parseInt($(e.target).data('index'));
+    $("#menu_selection_hover").hide(0);
 });
 
 // Functions
@@ -34,32 +26,13 @@ function changeSection(newSection)
 	if(currentSection != newSection && canChangeSection)
 	{
 		canChangeSection = false;
-		
-		//Rotate 3D camera and move glow
-		switch(newSection)
-		{
-			case 0:
-				if(WebGLEnabled) changeCameraAngle(0.0);
-				$("#menu_selection_glow").animate({ left: 83 }, 2000);
-				break;
-			case 1:
-				if(WebGLEnabled) changeCameraAngle(-0.25);
-				$("#menu_selection_glow").animate({ left: 252 }, 2000);
-				break;
-			case 2:
-				if(WebGLEnabled) changeCameraAngle(-0.5);
-				$("#menu_selection_glow").animate({ left: 421 }, 2000);
-				break;
-			case 3:
-				if(WebGLEnabled) changeCameraAngle(-0.75);
-				$("#menu_selection_glow").animate({ left: 590 }, 2000);
-				break;
-			case 4:
-				if(WebGLEnabled) changeCameraAngle(-1.0);
-				$("#menu_selection_glow").animate({ left: 759 }, 2000);
-				break;
-		}
-		
+
+        var cameraAngle = -1.0 * newSection / totalSections;
+
+        //Rotate 3D camera and move glow
+        if(WebGLEnabled) changeCameraAngle(cameraAngle);
+        $("#menu_selection_glow").animate({ left: sectionPositions[newSection] }, 2000);
+
 		var oldSectionDiv = "#section-" + currentSection;
 		var newSectionDiv = "#section-" + newSection;
 		

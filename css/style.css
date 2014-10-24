@@ -154,6 +154,14 @@ p {
 	height: 99px;
 	background-image: url(../content/menu_selection_glow.png);
 }
+#menu_selection_hover {
+    position: absolute;
+    top: 0px;
+    left: 83px;
+    width: 118px;
+    height: 99px;
+    background-image: url(../content/menu_selection_glow.png);
+}
 /* ########################### */
 
 
