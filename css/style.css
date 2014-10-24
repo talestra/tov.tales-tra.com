@@ -140,6 +140,7 @@ p {
 #footer-3rd-layer ul li a {
 	text-decoration: none;
 	color: #768799;
+    padding-top: 48px;
 }
 #footer-3rd-layer ul li a:hover {
 	text-decoration: none;
