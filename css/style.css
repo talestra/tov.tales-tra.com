@@ -409,3 +409,18 @@ y-axis
 .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,  .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
 	background-color: #fff;
 }
+
+/** MORE WORK */
+
+div.about_people div.author {
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+}
+
+div.about_people div.author img.avatar {
+    width: 96px; height: 96px;
+}
+div.about_people div.author span.name {
+    display: block;
+    text-align:center;
+}
