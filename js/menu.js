@@ -28,7 +28,7 @@ if (true) {
 
 function showInitialSection() {
     var sectionName = document.location.hash.replace(/^#/, '');
-    if (sectionName == '') {
+    if (sectionName == '' || sectionName == 'main') {
         currentSection = 0;
         $("#section-0").delay(1500).fadeIn(1000, function()
         {
