@@ -46,9 +46,12 @@ function showInitialSection() {
         });
 		
 		if(WebGLEnabled) changeCameraAngle(-1.0 * currentSection / totalSections);
-        $("#menu_selection_glow").css("left", sectionPositions[currentSection]);
-        updateCurrentSection();
     }
+
+    $("#menu_selection_glow").css("left", sectionPositions[currentSection]);
+    $('.menuitem').toggleClass('selected', false);
+    $(".menuitem[data-index='" + currentSection + "']").toggleClass('selected', true);
+    updateCurrentSection();
 }
 
 function changeSection(newSection)
@@ -56,11 +59,18 @@ function changeSection(newSection)
 	if (currentSection == newSection || !canChangeSection) return;
 
     canChangeSection = false;
+
+    var transitionTime = 2000;
+    //var transitionTime = 300;
 	
     //Rotate 3D camera and move glow
 	var cameraAngle = -1.0 * newSection / totalSections;
-    if(WebGLEnabled) changeCameraAngle(cameraAngle);
-    $("#menu_selection_glow").animate({ left: sectionPositions[newSection] }, 2000);
+    if(WebGLEnabled) changeCameraAngle(cameraAngle, transitionTime);
+    $('.menuitem').toggleClass('selected', false);
+    $("#menu_selection_glow").animate({ left: sectionPositions[newSection] }, transitionTime);
+    setTimeout(function() {
+        $(".menuitem[data-index='" + newSection + "']").toggleClass('selected', true);
+    }, transitionTime - 400);
 
     var oldSectionDiv = "#section-" + currentSection;
     var newSectionDiv = "#section-" + newSection;
@@ -69,7 +79,7 @@ function changeSection(newSection)
     if(newSectionDiv > oldSectionDiv)
     {
         //Make disappear current section
-        $(oldSectionDiv).animate({ left: -1920  - 960 }, 2000, function()
+        $(oldSectionDiv).animate({ left: -1920  - 960 }, transitionTime, function()
         {
             $(oldSectionDiv).css("display", "none");
         });
@@ -81,7 +91,7 @@ function changeSection(newSection)
     if(newSectionDiv < oldSectionDiv)
     {
         //Make disappear current section
-        $(oldSectionDiv).animate({ left: windowWidth + 1920 }, 2000, function()
+        $(oldSectionDiv).animate({ left: windowWidth + 1920 }, transitionTime, function()
         {
             $(oldSectionDiv).css("display", "none");
         });
@@ -91,7 +101,7 @@ function changeSection(newSection)
 
     //Make appear the new section
     $(newSectionDiv).css("display", "block");
-    $(newSectionDiv).animate({ left: getSectionCenter() }, 2000, function()
+    $(newSectionDiv).animate({ left: getSectionCenter() }, transitionTime, function()
     {
         //Animation finished, so we can change section again
         canChangeSection = true;

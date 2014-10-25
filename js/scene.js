@@ -221,9 +221,10 @@ function initialZoomOut()
 	tween.start();
 }
 
-function changeCameraAngle(ang)
+function changeCameraAngle(ang, time)
 {
-	var tween = new TWEEN.Tween(cameraAngle).to({angle: ang}, 2000);
+    if (time === undefined) time = 2000;
+	var tween = new TWEEN.Tween(cameraAngle).to({angle: ang}, time);
 	tween.easing(TWEEN.Easing.Cubic.InOut);
 	tween.onUpdate(function()
 	{
