@@ -1,10 +1,10 @@
 var currentSection = 0;
-var numberOfSections = 5;
 var windowWidth = $(window).width();
 
 var canChangeSection = false;
 var sectionPositions = [83, 252, 412, 590, 759];
 var sectionNames = ['main', 'download', 'guides', 'screenshots', 'about'];
+var numberOfSections = sectionPositions.length;
 var totalSections = sectionPositions.length;
 
 updateCurrentSection();
@@ -29,6 +29,7 @@ if (true) {
 function showInitialSection() {
     var sectionName = document.location.hash.replace(/^#/, '');
     if (sectionName == '') {
+        currentSection = 0;
         $("#section-0").delay(1500).fadeIn(1000, function()
         {
             canChangeSection = true;
