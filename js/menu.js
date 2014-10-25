@@ -2,7 +2,7 @@ var currentSection = 0;
 var windowWidth = $(window).width();
 
 var canChangeSection = false;
-var sectionPositions = [83, 252, 412, 590, 759];
+var sectionPositions = [83, 252, 421, 590, 759];
 var sectionNames = ['main', 'download', 'guides', 'screenshots', 'about'];
 var numberOfSections = sectionPositions.length;
 var totalSections = sectionPositions.length;
@@ -40,12 +40,13 @@ function showInitialSection() {
 
         //currentSection = 2;
 
-        $("#section-" + currentSection).delay(0).fadeIn(0, function()
+        $("#section-" + currentSection).delay(1500).fadeIn(1000, function()
         {
             canChangeSection = true;
         });
-
-        $("#menu_selection_glow").animate({ left: sectionPositions[currentSection] }, 0);
+		
+		if(WebGLEnabled) changeCameraAngle(-1.0 * currentSection / totalSections);
+        $("#menu_selection_glow").css("left", sectionPositions[currentSection]);
         updateCurrentSection();
     }
 }
@@ -55,10 +56,9 @@ function changeSection(newSection)
 	if (currentSection == newSection || !canChangeSection) return;
 
     canChangeSection = false;
-
-    var cameraAngle = -1.0 * newSection / totalSections;
-
+	
     //Rotate 3D camera and move glow
+	var cameraAngle = -1.0 * newSection / totalSections;
     if(WebGLEnabled) changeCameraAngle(cameraAngle);
     $("#menu_selection_glow").animate({ left: sectionPositions[newSection] }, 2000);
 
@@ -90,7 +90,7 @@ function changeSection(newSection)
     }
 
     //Make appear the new section
-    $(newSectionDiv).css("display", "inline");
+    $(newSectionDiv).css("display", "block");
     $(newSectionDiv).animate({ left: getSectionCenter() }, 2000, function()
     {
         //Animation finished, so we can change section again
