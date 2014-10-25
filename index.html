@@ -92,11 +92,12 @@
         <h2>Guías del juego</h2>
         <p>
 	        <ul>
-				<li><a target="_blank" href="content/guides/achievements.pdf">Logros</a></li>
-				<li><a target="_blank" href="content/guides/secondary_missions.pdf">Misiones secundarias</a></li>
-	            <li><a target="_blank" href="content/guides/recipes.pdf">Recetas</a></li>
-	            <li><a target="_blank" href="content/guides/titles.pdf">Títulos</a></li>
+				<li><a target="_blank" data-type="guide" href="content/guides/achievements.html">Logros</a></li>
+				<li><a target="_blank" data-type="guide" href="content/guides/secondary_missions.html">Misiones secundarias</a></li>
+	            <li><a target="_blank" data-type="guide" href="content/guides/recipes.html">Recetas</a></li>
+	            <li><a target="_blank" data-type="guide" href="content/guides/titles.html">Títulos</a></li>
 	        </ul>
+	      <div id="guide_container"></div>
         </p>
       </div>
     </div>
@@ -156,5 +157,23 @@
 <script type="text/javascript" src="js/shaders/star.js"></script> 
 <script type="text/javascript" src="js/scene.js"></script> 
 <script type="text/javascript" src="js/menu.js"></script>
+<script type="text/javascript">
+	function loadGuide(url) {
+		$( "#guide_container" ).load(url);
+		//$.ajax( url ).done(function(v) {
+		//	$( "#guide_container").html(v);
+		//}).fail(function(e) {
+		//	$( "#guide_container").html('error:' + e);
+		//});
+	}
+
+	$("a[data-type='guide']").click(function(e) {
+		var element = $(e.target);
+		loadGuide(element.attr('href'));
+		return false;
+	});
+
+	loadGuide("content/guides/achievements.html");
+</script>
 </body>
 </html>
