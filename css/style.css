@@ -161,7 +161,7 @@ p {
     width: 118px;
     height: 99px;
     background-image: url(../content/menu_selection_glow.png);
-    display: hidden;
+    display: none;
 }
 /* ########################### */
 

@@ -28,9 +28,6 @@ function finishLoading()
 	{
 		if(WebGLEnabled) initialZoomOut();
 		$("#loading-bg").fadeOut(1000);
-		$("#section-0").delay(1500).fadeIn(1000, function()
-		{
-			canChangeSection = true;
-		});
+        showInitialSection();
 	});
 }
