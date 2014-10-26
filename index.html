@@ -21,7 +21,6 @@
 </div>
 <div id="content">
   <div id="section-0" class="section">
-    <div id="section-character-0"></div>
     <div class="section-name-frame">
       <div class="section-name">Principal</div>
     </div>
@@ -201,44 +200,17 @@
     </div>
   </div>
 </div>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script> 
-<script type="text/javascript" src="js/lightbox.min.js"></script> 
-<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script> 
-<script type="text/javascript" src="js/three.min.js"></script> 
-<script type="text/javascript" src="js/tween.min.js"></script> 
-<script type="text/javascript" src="js/threex.windowresize.js"></script> 
-<script type="text/javascript" src="js/Detector.js"></script> 
-<script type="text/javascript" src="js/other.js"></script> 
-<script type="text/javascript" src="js/loading.js"></script> 
-<script type="text/javascript" src="js/shaders/star.js"></script> 
-<script type="text/javascript" src="js/scene.js"></script> 
-<script type="text/javascript" src="js/menu.js"></script> 
-<script type="text/javascript">
-	function loadGuide(url, id) {
-		$.ajax( url ).done(function(v) {
-          $( "#guide_container").css('position', 'relative');
-          $( "#guide_container").animate({ opacity: 0, left: '20px'}, 200, function() {
-            $("a[data-type='guide']").each(function(i, e) {
-              $(e).toggleClass('selected', ($(e).data('id') == id));
-            });
-            $( "#guide_container").css('left', '-20px');
-            //$( ".mCSB_container").css('top', 0);
-            $( "#guide_container").html(v);
-            $( "#guide_container").animate({ opacity: 1, left: 0}, 200);
-          });
-          $(e).toggleClass('selected', ($(e).data('id') == id));
-		}).fail(function(e) {
-			$( "#guide_container").html('error:' + e);
-		});
-	}
-
-	$("a[data-type='guide']").click(function(e) {
-		var element = $(e.target);
-		loadGuide(element.attr('href'), element.data('id'));
-		return false;
-	});
-
-	loadGuide("content/guides/secondary_missions.html", 'secondary_missions');
-</script>
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/lightbox.min.js"></script>
+<script type="text/javascript" src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script type="text/javascript" src="js/three.min.js"></script>
+<script type="text/javascript" src="js/tween.min.js"></script>
+<script type="text/javascript" src="js/threex.windowresize.js"></script>
+<script type="text/javascript" src="js/Detector.js"></script>
+<script type="text/javascript" src="js/other.js"></script>
+<script type="text/javascript" src="js/loading.js"></script>
+<script type="text/javascript" src="js/shaders/star.js"></script>
+<script type="text/javascript" src="js/scene.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
 </body>
 </html>
