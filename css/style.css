@@ -231,12 +231,14 @@ p {
 }
 
 .mCSB_inside {
+    /*
 	mask: url(../content/content_mask.png);
 	mask-size: 100% 100%;
 	-webkit-mask: url(../content/content_mask.png);
 	-webkit-mask-size: 100% 100%;
 	-moz-mask: url(../content/content_mask.png);
 	-moz-mask-size: 100% 100%;
+	*/
 }
 
 .content-frame-small {
