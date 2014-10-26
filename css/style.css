@@ -170,7 +170,7 @@ p {
 	top: 0px;
 	left: 83px;
 	width: 118px;
-	height: 99px;
+	height: 55px;
 	background-image: url(../content/menu_selection_glow.png);
 }
 #menu_selection_hover {
@@ -178,7 +178,7 @@ p {
     top: 0px;
     left: 83px;
     width: 118px;
-    height: 99px;
+    height: 55px;
     background-image: url(../content/menu_selection_hover.png);
     display: none;
 }
@@ -262,6 +262,13 @@ p {
 	width: 300px;
 	margin-right: 50px;
 }
+#section-character-0 {
+	position: absolute;
+	width: 150px;
+	height: 293px;
+	bottom: 32px;
+	background-image: url(../content/section_charas/yuri.png);
+}
 
 /*** Sección guías ***/
 
@@ -282,7 +289,7 @@ p {
 }
 .submenu a {
 	display: inline-block;
-	padding: 16px 32px;
+	padding: 5px 32px;
 	vertical-align: middle;
 }
 .submenu a.selected {

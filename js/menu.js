@@ -18,7 +18,7 @@ $('.menuitem').click(function(e) {
 if (true) {
     $('.menuitem').on('mouseover', function(e) {
         var index = parseInt($(e.target).data('index'));
-        $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
+		if(index != currentSection) $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
     }).on('mouseout', function(e) {
         var index = parseInt($(e.target).data('index'));
         $("#menu_selection_hover").hide(0);
