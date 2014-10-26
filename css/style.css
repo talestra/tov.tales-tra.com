@@ -259,8 +259,7 @@ p {
 }
 .section-top-content {
 	display: inline-block;
-	width: 300px;
-	margin-right: 50px;
+	margin-right: 70px;
 }
 #section-character-0 {
 	position: absolute;
@@ -269,6 +268,28 @@ p {
 	bottom: 32px;
 	background-image: url(../content/section_charas/yuri.png);
 }
+
+/** Sección descargar **/
+
+#download-button {
+	background-image: url(../content/download-button.png);
+	background-repeat: no-repeat;
+	background-position: bottom;
+	width: 346px;
+	height: 36px;
+	font-size: 18px;
+	text-align: center;
+	font-variant: small-caps;
+}
+#download-button a {
+	color: #a5efff;
+	text-decoration: none;
+}
+#download-button a:hover {
+	color: #fff;
+	text-decoration: none;
+}
+
 
 /*** Sección guías ***/
 
