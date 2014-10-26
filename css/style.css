@@ -21,6 +21,14 @@ canvas {
 	height: 100%;
 	display: block;
 }
+a {
+	color: #fff;
+	text-decoration: none;
+}
+a:hover {
+	color: #fff;
+	text-decoration: underline;
+}
 img {
 	border: none;
 }
@@ -42,9 +50,9 @@ p {
 /* #### Clases generales #### */
 
 .author {
+	text-align: right;
 	font-style: italic;
 	font-size: 14px;
-	margin-bottom: 20px;
 }
 .center {
 	display: block;
@@ -222,13 +230,62 @@ p {
 	width: 746px;
 }
 .content-frame-small {
-	width: 575px;
+	top: 112px !important;
 }
 .section-name-frame, .section-content-frame {
 	top: 32px;
 	bottom: 32px;
 }
+.section-top-frame {
+	position: absolute;
+	top: 32px;
+	left: 182px;
+	height: 60px;
+	width: 746px;
+	border-bottom: 2px solid #768799;
+}
+.section-top-frame > * {
+	vertical-align: middle;
+}
+.section-top-content {
+	display: inline-block;
+	width: 300px;
+	margin-right: 50px;
+}
 
+/*** Sección guías ***/
+
+.submenu {
+	margin: 0;
+	padding: 0;
+}
+.submenu li {
+	list-style-type: none;
+	color: #768799;
+	/*display: inline;
+	margin: 0 40px 0 40px;*/
+	display: table-cell;
+	width: 186px;
+	text-align: center;
+}
+
+/** Sección créditos **/
+
+div.about_people div.credits-author {
+    background: rgba(0, 0, 0, 0.2);
+    display: inline-block;
+	font-style: italic;
+	font-size: 14px;
+	margin-bottom: 20px;
+}
+
+div.about_people div.credits-author img.avatar {
+    width: 96px; height: 96px;
+}
+div.about_people div.credits-author span.name {
+    display: block;
+    text-align:center;
+}
 
 
 
@@ -419,19 +476,4 @@ y-axis
 }
 .mCSB_scrollTools .mCSB_dragger:active .mCSB_dragger_bar,  .mCSB_scrollTools .mCSB_dragger.mCSB_dragger_onDrag .mCSB_dragger_bar {
 	background-color: #fff;
-}
-
-/** MORE WORK */
-
-div.about_people div.author {
-    background: rgba(0, 0, 0, 0.2);
-    display: inline-block;
-}
-
-div.about_people div.author img.avatar {
-    width: 96px; height: 96px;
-}
-div.about_people div.author span.name {
-    display: block;
-    text-align:center;
 }
