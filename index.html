@@ -67,7 +67,7 @@
     <div class="section-content-frame content-frame-small">
       <h2>Sobre el parche</h2>
       <p>Pues bien, una vez descargado y descomprimido, ejecuta el programa y clica sobre el botón Parchear.</p>
-      <img class="center" src="content/patcher.jpg" width="512" height="336" alt="Parcheador de Tales of Vesperia"/>
+      <img class="center" src="content/patcher.jpg" width="512" height="336" alt="Parcheador de Tales of Vesperia" style="margin-bottom:12px;" />
       <p>Te aparecerán dos opciones: Parchear ISO y Parchear carpeta (JTAG).</p>
       <p>Selecciona Parchear ISO si tienes una Xbox 360 con el lector flasheado LT+ 3.0, escoge la ISO europea de Tales of Vesperia, luego el destino de la ISO traducida y espera un buen rato. Como referencia, en un i7 920 con 6 GB de RAM y un disco SSD tarda casi media hora en completarse.</p>
       <p>Si tienes una Xbox 360 con JTAG o cualquier método que cargue el juego a través de almacenamiento externo, selecciona Parchear carpeta (JTAG), escoge la carpeta donde tengas los archivos descomprimidos de Tales of Vesperia, luego el destino de dichos archivos y espera un ratete largo.</p>
@@ -97,10 +97,10 @@
     </div>
     <div class="section-top-frame">
       <ul class="submenu">
-        <li><a target="_blank" data-type="guide" href="content/guides/secondary_missions.html">Misiones secundarias</a></li>
-        <li><a target="_blank" data-type="guide" href="content/guides/achievements.html">Logros</a></li>
-        <li><a target="_blank" data-type="guide" href="content/guides/recipes.html">Recetas</a></li>
-        <li><a target="_blank" data-type="guide" href="content/guides/titles.html">Títulos</a></li>
+        <li><a target="_blank" data-type="guide" data-id="secondary_missions" href="content/guides/secondary_missions.html">Misiones secundarias</a></li>
+        <li><a target="_blank" data-type="guide" data-id="achievements" href="content/guides/achievements.html">Logros</a></li>
+        <li><a target="_blank" data-type="guide" data-id="recipes" href="content/guides/recipes.html">Recetas</a></li>
+        <li><a target="_blank" data-type="guide" data-id="titles" href="content/guides/titles.html">Títulos</a></li>
       </ul>
     </div>
     <div class="section-content-frame content-frame-small">
@@ -112,9 +112,9 @@
       <div class="section-name">Capturas</div>
     </div>
     <div class="section-content-frame">
-      <h2>Ingame</h2>
+      <h2>Diálogos</h2>
       <p> <a href="content/screenshots/full/0.jpg" data-lightbox="screenshots-ingame" data-title="" target="_blank"><img src="content/screenshots/full/0.jpg" width="128" height="72" /></a> <a href="content/screenshots/full/1.jpg" data-lightbox="screenshots-ingame" data-title="" target="_blank"><img src="content/screenshots/full/1.jpg" width="128" height="72" /></a> <a href="content/screenshots/full/2.jpg" data-lightbox="screenshots-ingame" data-title="" target="_blank"><img src="content/screenshots/full/2.jpg" width="128" height="72" /></a> </p>
-      <h2>Menus</h2>
+      <h2>Menús</h2>
       <p> <a href="content/screenshots/full/menu-0.jpg" data-lightbox="screenshots-menus" data-title="" target="_blank"><img src="content/screenshots/full/menu-0.jpg" width="128" height="72" /></a> <a href="content/screenshots/full/menu-1.jpg" data-lightbox="screenshots-menus" data-title="" target="_blank"><img src="content/screenshots/full/menu-1.jpg" width="128" height="72" /></a> </p>
     </div>
   </div>
@@ -207,13 +207,17 @@
 <script type="text/javascript" src="js/threex.windowresize.js"></script> 
 <script type="text/javascript" src="js/Detector.js"></script> 
 <script type="text/javascript" src="js/other.js"></script> 
-<script type="text/javascript" src="js/loading.js"></script> 
+<script type="text/javascript" src="js/loading.js"></script>
 <script type="text/javascript" src="js/shaders/star.js"></script> 
 <script type="text/javascript" src="js/scene.js"></script> 
 <script type="text/javascript" src="js/menu.js"></script> 
 <script type="text/javascript">
-	function loadGuide(url) {
+	function loadGuide(url, id) {
 		$( "#guide_container" ).load(url);
+        $("a[data-type='guide']").each(function(i, e) {
+          $(e).toggleClass('selected', ($(e).data('id') == id));
+          //alert(e.src);
+        });
 		//$.ajax( url ).done(function(v) {
 		//	$( "#guide_container").html(v);
 		//}).fail(function(e) {
@@ -223,11 +227,11 @@
 
 	$("a[data-type='guide']").click(function(e) {
 		var element = $(e.target);
-		loadGuide(element.attr('href'));
+		loadGuide(element.attr('href'), element.data('id'));
 		return false;
 	});
 
-	loadGuide("content/guides/secondary_missions.html");
+	loadGuide("content/guides/secondary_missions.html", 'secondary_missions');
 </script>
 </body>
 </html>

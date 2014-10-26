@@ -267,6 +267,23 @@ p {
 	display: table-cell;
 	width: 186px;
 	text-align: center;
+	position: relative;
+	top: -10px;
+}
+.submenu a {
+	display: inline-block;
+	padding: 16px 32px;
+	vertical-align: middle;
+}
+.submenu a.selected {
+	color: white !important;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+a.pdficon {
+	background: url('../content/pdf_icon.png') no-repeat 0 center;
+	padding-left: 20px;
 }
 
 /** Sección créditos **/

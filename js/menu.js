@@ -6,6 +6,7 @@ var sectionPositions = [83, 252, 421, 590, 759];
 var sectionNames = ['main', 'download', 'guides', 'screenshots', 'about'];
 var numberOfSections = sectionPositions.length;
 var totalSections = sectionPositions.length;
+var DEVEL = document.location.host == '127.0.0.1:9090';
 
 updateCurrentSection();
 
@@ -28,9 +29,17 @@ if (true) {
 
 function showInitialSection() {
     var sectionName = document.location.hash.replace(/^#/, '');
+    var delayTime = 1500;
+    var transitionTime = 1000;
+
+    if (DEVEL) {
+        delayTime = 0;
+        transitionTime = 200;
+    }
+
     if (sectionName == '' || sectionName == 'main') {
         currentSection = 0;
-        $("#section-0").delay(1500).fadeIn(1000, function()
+        $("#section-0").delay(delayTime).fadeIn(transitionTime, function()
         {
             canChangeSection = true;
         });
@@ -40,7 +49,7 @@ function showInitialSection() {
 
         //currentSection = 2;
 
-        $("#section-" + currentSection).delay(1500).fadeIn(1000, function()
+        $("#section-" + currentSection).delay(delayTime).fadeIn(transitionTime, function()
         {
             canChangeSection = true;
         });
@@ -61,8 +70,11 @@ function changeSection(newSection)
     canChangeSection = false;
 
     var transitionTime = 2000;
-    //var transitionTime = 300;
-	
+
+    if (DEVEL) {
+        transitionTime = 300;
+    }
+
     //Rotate 3D camera and move glow
 	var cameraAngle = -1.0 * newSection / totalSections;
     if(WebGLEnabled) changeCameraAngle(cameraAngle, transitionTime);
