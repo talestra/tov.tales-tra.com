@@ -15,7 +15,7 @@ $('.menuitem').click(function(e) {
     changeSection(index);
 });
 
-if (true) {
+if (false) {
     $('.menuitem').on('mouseover', function(e) {
         var index = parseInt($(e.target).data('index'));
 		if(index != currentSection) $("#menu_selection_hover").animate({ left: sectionPositions[index] }, 0).show(0);
