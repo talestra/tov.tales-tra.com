@@ -28,10 +28,9 @@ function loadGuide(url, id)
 			$( "#guide_container").html(v);
 			$( "#guide_container").animate({ opacity: 1, left: 0}, 200);
 		});
-		$(e).toggleClass('selected', ($(e).data('id') == id));
 	}).fail(function(e)
 	{
-		$( "#guide_container").html('error:' + e);
+		$("#guide_container").html(`Error getting "${url}": ${e.status} ${e.statusText}`);
 	});
 }
 
